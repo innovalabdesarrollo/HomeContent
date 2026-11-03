@@ -1,0 +1,27 @@
+{
+  "name": "home-content",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel --filter @home-content/api --filter @home-content/web dev",
+    "dev:api": "pnpm --filter @home-content/api dev",
+    "dev:web": "pnpm --filter @home-content/web dev",
+    "build": "pnpm --filter @home-content/web build",
+    "start:api": "pnpm --filter @home-content/api start",
+    "test": "pnpm --filter @home-content/api test",
+    "test:e2e": "NEXT_PUBLIC_API_URL= pnpm --filter @home-content/web build && playwright test",
+    "test:all": "pnpm test && pnpm test:e2e"
+  },
+  "engines": {
+    "node": ">=24.22.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": ">=8.5.18"
+    }
+  },
+  "packageManager": "pnpm@9.15.0",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "dotenv": "^16.4.7"
+  }
+}
